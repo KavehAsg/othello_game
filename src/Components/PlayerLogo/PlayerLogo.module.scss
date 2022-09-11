@@ -1,0 +1,15 @@
+@import "../../Scss/mixins&var";
+
+.logo {
+  margin: 25px;
+  width: 60px;
+  height: 60px;
+  background: $mainColor;
+  border-radius: 50%;
+  -webkit-box-shadow: 6px 6px 17px #d3c7d5, -6px -6px 17px #ffffff;
+  box-shadow: 6px 6px 17px #d3c7d5, -6px -6px 17px #ffffff;
+  @include flex(row, center, center, 0);
+  font-size: 1.5rem;
+  animation: playerTurn 2s linear infinite normal forwards ;
+}
+

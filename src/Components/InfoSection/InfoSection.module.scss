@@ -1,0 +1,5 @@
+@import "../../Scss/mixins&var";
+
+.logoContainer{
+    @include flex(row , space-between , center , 5px);
+}
