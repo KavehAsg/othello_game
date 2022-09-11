@@ -1,14 +1,24 @@
 @import "../../Scss/mixins&var";
 
+.container {
+  @include flex(column, space-between, center, 16px);
+}
+
 .logo {
   width: 60px;
   height: 60px;
   background: $mainColor;
   border-radius: 50%;
-  @include shadow;
+  @include mainShadow;
   @include flex(row, center, center, 0);
   font-size: 1.5rem;
-  animation: playerTurn 2s linear infinite normal forwards ;
-  color: $primaryColor;
 }
 
+.counter {
+  padding: 2px;
+  width: 3rem;
+  height: fit-content;
+  border-radius: 10px;
+  text-align: center;
+  @include mainShadow;
+}

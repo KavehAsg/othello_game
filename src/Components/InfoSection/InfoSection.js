@@ -17,8 +17,8 @@ export default class InfoSection extends Component {
     return (
       <div className={styles.infoSection}>
         <div className={styles.logoContainer}>
-          <PlayerProfile itsTurn={blackTurn} playerNumber={1} />
-          <PlayerProfile itsTurn={whiteTurn} playerNumber={2} />
+          <PlayerProfile itsTurn={blackTurn} playerNumber={1} pieceCount={25} />
+          <PlayerProfile itsTurn={whiteTurn} playerNumber={2} pieceCount={17}/>
         </div>
       </div>
     );

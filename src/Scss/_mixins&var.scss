@@ -1,7 +1,7 @@
 $mainColor: #f3e5f5;
 $primaryColor: #2979ff;
 $black: #212121;
-$white: #fafafa;
+$purple: #ba68c8;
 
 @mixin flex($direction, $justify, $align, $gap) {
   display: -webkit-box;
@@ -27,7 +27,7 @@ $white: #fafafa;
   transition: $property $time $speed;
 }
 
-@mixin shadow {
-  -webkit-box-shadow: 6px 6px 17px #d3c7d5, -6px -6px 17px #ffffff;
-  box-shadow: 6px 6px 17px #d3c7d5, -6px -6px 17px #ffffff;
+@mixin mainShadow {
+  -webkit-box-shadow: 6px 6px 17px #d3c7d5, -6px -6px 20px #ffffff;
+  box-shadow: 6px 6px 17px #d3c7d5, -6px -6px 20px #ffffff;
 }
