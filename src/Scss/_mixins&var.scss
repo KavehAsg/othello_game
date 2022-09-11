@@ -1,28 +1,33 @@
 $mainColor: #f3e5f5;
 $primaryColor: #2979ff;
 $black: #212121;
-$white: #fafafa ; 
+$white: #fafafa;
 
-@mixin flex($direction , $justify , $align , $gap) {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: $direction;
-    flex-direction: $direction;
-    -webkit-box-pack: $justify;
-    -ms-flex-pack: $justify;
-    justify-content: $justify;
-    -webkit-box-align: $align;
-    -ms-flex-align: $align;
-    align-items: $align;
-    gap: $gap;
-    @content;
+@mixin flex($direction, $justify, $align, $gap) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
+  -webkit-box-pack: $justify;
+  -ms-flex-pack: $justify;
+  justify-content: $justify;
+  -webkit-box-align: $align;
+  -ms-flex-align: $align;
+  align-items: $align;
+  gap: $gap;
+  @content;
 }
 
-@mixin transition($property , $time , $speed) {
-    -webkit-transition: $property $time $speed;
-    -o-transition: $property $time $speed;
-    transition: $property $time $speed;
+@mixin transition($property, $time, $speed) {
+  -webkit-transition: $property $time $speed;
+  -o-transition: $property $time $speed;
+  transition: $property $time $speed;
+}
+
+@mixin shadow {
+  -webkit-box-shadow: 6px 6px 17px #d3c7d5, -6px -6px 17px #ffffff;
+  box-shadow: 6px 6px 17px #d3c7d5, -6px -6px 17px #ffffff;
 }

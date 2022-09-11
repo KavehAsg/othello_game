@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
-import styles from './PlayerLogo.module.scss'
+import styles from './PlayerProfile.module.scss'
 
 const Logo = styled.div`
     animation: ${ props =>
@@ -12,14 +12,14 @@ const Logo = styled.div`
           box-shadow: 0px 0px 1px 1px #2979ff;
         }
         40% {
-          -webkit-box-shadow: 0px 0px 1px 5px #2979ff;
-          box-shadow: 0px 0px 1px 5px #2979ff;
+          -webkit-box-shadow: 0px 0px 1px 4px #2979ff;
+          box-shadow: 0px 0px 1px 4px #2979ff;
         }
       }
 
 `
 
-export default class PlayerLogo extends Component {
+export default class PlayerProfile extends Component {
   render() {
     const {itsTurn , playerNumber} = this.props;
     return (

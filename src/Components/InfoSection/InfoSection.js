@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PlayerLogo from "../PlayerLogo/PlayerLogo";
+import PlayerProfile from "../PlayerLogo/PlayerProfile";
 import styles from "./InfoSection.module.scss";
 
 export default class InfoSection extends Component {
@@ -17,8 +17,8 @@ export default class InfoSection extends Component {
     return (
       <div className={styles.infoSection}>
         <div className={styles.logoContainer}>
-          <PlayerLogo itsTurn={blackTurn} playerNumber={1} />
-          <PlayerLogo itsTurn={whiteTurn} playerNumber={2} />
+          <PlayerProfile itsTurn={blackTurn} playerNumber={1} />
+          <PlayerProfile itsTurn={whiteTurn} playerNumber={2} />
         </div>
       </div>
     );
