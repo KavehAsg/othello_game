@@ -1,11 +1,12 @@
 @import "../../Scss/mixins&var";
 
 .infoSection{
-    width: 35% ;
+    @include flex(column , space-between , center , 90px);
+    width: 30% ;
     padding: 48px;
 }
 
 
 .logoContainer{
-    @include flex(row , space-between , center , 5px);
+    @include flex(row , space-between , center , 30px);
 }

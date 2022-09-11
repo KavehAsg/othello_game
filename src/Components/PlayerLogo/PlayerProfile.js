@@ -30,12 +30,15 @@ export default class PlayerProfile extends Component {
     const { itsTurn, playerNumber, pieceCount } = this.props;
     return (
       <div className={styles.container}>
+
         <Logo className={styles.logo} itsTurn={itsTurn} playerNumber={playerNumber}>
           <div>P{playerNumber}</div>
         </Logo>
+
         <Counter className={styles.counter} playerNumber={playerNumber}>
           {pieceCount}
         </Counter>
+        
       </div>
     );
   }

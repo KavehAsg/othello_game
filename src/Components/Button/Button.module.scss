@@ -1,0 +1,17 @@
+@import "../../Scss/mixins&var";
+
+.btn {
+  width: 150px;
+  padding: 12px 0;
+  text-align: center;
+  color: $primaryColor;
+  border-radius: 20px; 
+  background: linear-gradient(145deg, #fff5ff, #dbcedd);
+  @include buttonShadow;
+  @include transition(all , 0.2s , linear);
+  user-select: none;
+
+  &:hover{
+    @include buttonPressedShadow;
+  }
+}

@@ -31,3 +31,13 @@ $purple: #ba68c8;
   -webkit-box-shadow: 6px 6px 17px #d3c7d5, -6px -6px 20px #ffffff;
   box-shadow: 6px 6px 17px #d3c7d5, -6px -6px 20px #ffffff;
 }
+
+@mixin buttonShadow {
+  -webkit-box-shadow: 10px 10px 20px #c7bcc9, -10px -10px 20px #ffffff;
+  box-shadow: 10px 10px 20px #c7bcc9, -10px -10px 20px #ffffff;
+}
+
+@mixin buttonPressedShadow {
+  -webkit-box-shadow: 5px 5px 10px #c7bcc9, -5px -5px 10px #ffffff;  
+  box-shadow: 5px 5px 10px #c7bcc9, -5px -5px 10px #ffffff;
+}
