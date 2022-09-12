@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PlayerProfile from "../PlayerLogo/PlayerProfile";
+import PlayerProfile from "../PlayerProfile/PlayerProfile";
 import styles from "./InfoSection.module.scss";
 import Button from "../Button/Button";
 

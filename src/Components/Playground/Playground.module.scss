@@ -1,5 +1,15 @@
-.playground{
-    width: 65%;
-    height: 100%;
-    padding: 8px;
+.playground {
+  width: 65%;
+  height: 100%;
+  padding: 24px;
+}
+
+.field {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  padding: 12px;
+
+  -webkit-box-shadow: inset 5px 5px 14px #cfc3d0, inset -5px -5px 14px #ffffff;  
+  box-shadow: inset 5px 5px 14px #cfc3d0, inset -5px -5px 14px #ffffff;
 }
