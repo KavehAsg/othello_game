@@ -14,6 +14,6 @@ body{
 
 #root{
     width: 100%;
-    height: 100%;
-    @include flex(row , space-between , center , 24px);
+    @include flex(row , space-between , flex-start , 0px);
+    position: relative;
 }
