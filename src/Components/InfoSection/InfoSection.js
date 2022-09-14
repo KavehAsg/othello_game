@@ -7,12 +7,12 @@ export default class InfoSection extends Component {
 
 
   render() {
-    const { blackTurn, purpleTurn } = this.props;
+    const { playerTurn } = this.props;
     return (
       <div className={styles.infoSection}>
         <div className={styles.logoContainer}>
-          <PlayerProfile itsTurn={blackTurn} playerNumber={1} pieceCount={25} />
-          <PlayerProfile itsTurn={purpleTurn} playerNumber={2} pieceCount={17} />
+          <PlayerProfile itsTurn={playerTurn} playerNumber={1} pieceCount={25} />
+          <PlayerProfile itsTurn={!playerTurn} playerNumber={2} pieceCount={17} />
         </div>
 
         <Button text="reset"/>

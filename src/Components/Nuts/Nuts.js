@@ -17,11 +17,11 @@ const Nut = styled.div`
 export default class Nuts extends Component {
 
   render() {
-    const { handler , name, color, empty, isPossible } = this.props;
+    const { handler , name , empty, isPossible } = this.props;
     return (
       <div
         className={styles.nutField}
-        onClick={() => handler(name, color, empty, isPossible)}
+        onClick={() => handler(name , empty, isPossible)}
       >
         <Nut className={styles.nut} {...this.props} />
       </div>

@@ -8,25 +8,23 @@ export default class App extends Component {
     super();
 
     this.state = {
-      blackTurn: true,
-      purpleTurn: false,
+      playerTurn: true, // true is black turn and false is purple turn
     };
   }
 
   changePlayerTurn = () => {
     this.setState(prevState => ({
-      blackTurn: !prevState.blackTurn,
-      purpleTurn: !prevState.purpleTurn,
+      playerTurn: !prevState.playerTurn,
     }))
   }
 
   render() {
-    const { blackTurn, purpleTurn } = this.state;
+    const { playerTurn } = this.state;
 
     return (
       <>
-        <InfoSection blackTurn={blackTurn} purpleTurn={purpleTurn}/>
-        <Playground blackTurn={blackTurn} purpleTurn={purpleTurn} turnHandler={this.changePlayerTurn}/>
+        <InfoSection playerTurn={playerTurn} />
+        <Playground playerTurn={playerTurn} turnHandler={this.changePlayerTurn}/>
       </>
     );
   }
