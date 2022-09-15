@@ -97,7 +97,7 @@ export default class Playground extends Component {
   orderOFRowsName = ["a", "b", "c", "d", "e", "f", "g", "h"]; // we get row index of nuts array of object with this order
 
   nutsClickHandler = (name, empty, isPossible) => {
-    if (empty) {
+    if (empty && isPossible) {
       const { nuts } = this.state;
       let clickedColor = this.props.playerTurn ? "black" : "purple";
       let opponentColor = !this.props.playerTurn ? "black" : "purple";
@@ -215,6 +215,7 @@ export default class Playground extends Component {
       }
       newNuts[nutRowIndex][nutColumnIndex].color = clickedColor;
       newNuts[nutRowIndex][nutColumnIndex].empty = false;
+      newNuts[nutRowIndex][nutColumnIndex].isPossible = false;
 
       this.setState({
         nuts: newNuts,
@@ -234,10 +235,13 @@ export default class Playground extends Component {
     let upperNutsChanged = []; // list of nut fields which must change color in up direction
 
     for (let row = nutRowIndex - 1; row >= 0; row--) {
-      if (nuts[row][nutColumnIndex].color === opponentColor) {
-        upperNutsChanged.push(nuts[row][nutColumnIndex].name);
+      if (nuts[row][nutColumnIndex].color === opponentColor && row === 0) {
+        upperNutsChanged = [];
+        break;
       } else if (nuts[row][nutColumnIndex].color === clickedColor) {
         break;
+      } else if (nuts[row][nutColumnIndex].color === opponentColor) {
+        upperNutsChanged.push(nuts[row][nutColumnIndex].name);
       } else {
         upperNutsChanged = [];
         break;
@@ -257,10 +261,13 @@ export default class Playground extends Component {
     let belowNutsChanged = []; // list of nut fields which must change color in up direction
 
     for (let row = nutRowIndex + 1; row <= 7; row++) {
-      if (nuts[row][nutColumnIndex].color === opponentColor) {
-        belowNutsChanged.push(nuts[row][nutColumnIndex].name);
+      if (nuts[row][nutColumnIndex].color === opponentColor && row === 7) {
+        belowNutsChanged = [];
+        break;
       } else if (nuts[row][nutColumnIndex].color === clickedColor) {
         break;
+      } else if (nuts[row][nutColumnIndex].color === opponentColor) {
+        belowNutsChanged.push(nuts[row][nutColumnIndex].name);
       } else {
         belowNutsChanged = [];
         break;
@@ -280,17 +287,20 @@ export default class Playground extends Component {
     let leftNutsChanged = []; // list of nut fields which must change color in up direction
 
     for (let column = nutColumnIndex - 1; column >= 0; column--) {
-      if (nuts[nutRowIndex][column].color === opponentColor) {
-        leftNutsChanged.push(nuts[nutRowIndex][column].name);
+      if (nuts[nutRowIndex][column].color === opponentColor && column === 0) {
+        leftNutsChanged = [];
+        break;
       } else if (nuts[nutRowIndex][column].color === clickedColor) {
         break;
+      } else if (nuts[nutRowIndex][column].color === opponentColor) {
+        leftNutsChanged.push(nuts[nutRowIndex][column].name);
       } else {
         leftNutsChanged = [];
         break;
       }
     }
 
-    console.log(leftNutsChanged);
+    // console.log(leftNutsChanged);
     return leftNutsChanged;
   };
 
@@ -303,11 +313,14 @@ export default class Playground extends Component {
     const { nuts } = this.state;
     let rightNutsChanged = []; // list of nut fields which must change color in up direction
 
-    for (let column = nutColumnIndex + 1; column >= 0; column++) {
-      if (nuts[nutRowIndex][column].color === opponentColor) {
-        rightNutsChanged.push(nuts[nutRowIndex][column].name);
+    for (let column = nutColumnIndex + 1; column <= 7; column++) {
+      if (nuts[nutRowIndex][column].color === opponentColor && column === 7) {
+        rightNutsChanged = [];
+        break;
       } else if (nuts[nutRowIndex][column].color === clickedColor) {
         break;
+      } else if (nuts[nutRowIndex][column].color === opponentColor) {
+        rightNutsChanged.push(nuts[nutRowIndex][column].name);
       } else {
         rightNutsChanged = [];
         break;
@@ -328,10 +341,16 @@ export default class Playground extends Component {
     let row = nutRowIndex - 1,
       column = nutColumnIndex + 1;
     while (row >= 0 && column <= 7) {
-      if (nuts[row][column].color === opponentColor) {
-        upRightNutsChanged.push(nuts[row][column].name);
+      if (
+        nuts[row][column].color === opponentColor &&
+        (row === 0 || column === 7)
+      ) {
+        upRightNutsChanged = [];
+        break;
       } else if (nuts[row][column].color === clickedColor) {
         break;
+      } else if (nuts[row][column].color === opponentColor) {
+        upRightNutsChanged.push(nuts[row][column].name);
       } else {
         upRightNutsChanged = [];
         break;
@@ -355,10 +374,16 @@ export default class Playground extends Component {
     let row = nutRowIndex + 1,
       column = nutColumnIndex + 1;
     while (row <= 7 && column <= 7) {
-      if (nuts[row][column].color === opponentColor) {
-        belowRightNutsChanged.push(nuts[row][column].name);
+      if (
+        nuts[row][column].color === opponentColor &&
+        (row === 7 || column === 7)
+      ) {
+        belowRightNutsChanged = [];
+        break;
       } else if (nuts[row][column].color === clickedColor) {
         break;
+      } else if (nuts[row][column].color === opponentColor) {
+        belowRightNutsChanged.push(nuts[row][column].name);
       } else {
         belowRightNutsChanged = [];
         break;
@@ -382,15 +407,20 @@ export default class Playground extends Component {
     let row = nutRowIndex - 1,
       column = nutColumnIndex - 1;
     while (row >= 0 && column >= 0) {
-      if (nuts[row][column].color === opponentColor) {
-        upLeftNutsChanged.push(nuts[row][column].name);
+      if (
+        nuts[row][column].color === opponentColor &&
+        (row === 0 || column === 0)
+      ) {
+        upLeftNutsChanged = [];
+        break;
       } else if (nuts[row][column].color === clickedColor) {
         break;
+      } else if (nuts[row][column].color === opponentColor) {
+        upLeftNutsChanged.push(nuts[row][column].name);
       } else {
         upLeftNutsChanged = [];
         break;
       }
-
       row--;
       column--;
     }
@@ -409,10 +439,16 @@ export default class Playground extends Component {
     let row = nutRowIndex + 1,
       column = nutColumnIndex - 1;
     while (row <= 7 && column >= 0) {
-      if (nuts[row][column].color === opponentColor) {
-        belowLeftNutsChanged.push(nuts[row][column].name);
+      if (
+        nuts[row][column].color === opponentColor &&
+        (row === 7 || column === 0)
+      ) {
+        belowLeftNutsChanged = [];
+        break;
       } else if (nuts[row][column].color === clickedColor) {
         break;
+      } else if (nuts[row][column].color === opponentColor) {
+        belowLeftNutsChanged.push(nuts[row][column].name);
       } else {
         belowLeftNutsChanged = [];
         break;
