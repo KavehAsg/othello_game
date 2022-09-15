@@ -13,9 +13,9 @@ export default class App extends Component {
   }
 
   changePlayerTurn = () => {
-    this.setState(prevState => ({
+    this.setState(prevState  => ({
       playerTurn: !prevState.playerTurn,
-    }))
+    }));
   }
 
   render() {

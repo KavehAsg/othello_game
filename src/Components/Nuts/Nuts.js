@@ -21,7 +21,7 @@ export default class Nuts extends Component {
     return (
       <div
         className={styles.nutField}
-        onClick={() => handler(name , empty, isPossible)}
+        onClick={() => handler(name , empty, isPossible , true)}
       >
         <Nut className={styles.nut} {...this.props} />
       </div>

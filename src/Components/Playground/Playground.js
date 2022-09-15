@@ -36,7 +36,7 @@ export default class Playground extends Component {
       { name: "c0", color: null, empty: true, isPossible: false },
       { name: "c1", color: null, empty: true, isPossible: false },
       { name: "c2", color: null, empty: true, isPossible: false },
-      { name: "c3", color: null, empty: true, isPossible: false },
+      { name: "c3", color: null, empty: true, isPossible: true },
       { name: "c4", color: null, empty: true, isPossible: false },
       { name: "c5", color: null, empty: true, isPossible: false },
       { name: "c6", color: null, empty: true, isPossible: false },
@@ -45,7 +45,7 @@ export default class Playground extends Component {
     [
       { name: "d0", color: null, empty: true, isPossible: false },
       { name: "d1", color: null, empty: true, isPossible: false },
-      { name: "d2", color: null, empty: true, isPossible: false },
+      { name: "d2", color: null, empty: true, isPossible: true },
       { name: "d3", color: "purple", empty: false, isPossible: false },
       { name: "d4", color: "black", empty: false, isPossible: false },
       { name: "d5", color: null, empty: true, isPossible: false },
@@ -58,7 +58,7 @@ export default class Playground extends Component {
       { name: "e2", color: null, empty: true, isPossible: false },
       { name: "e3", color: "black", empty: false, isPossible: false },
       { name: "e4", color: "purple", empty: false, isPossible: false },
-      { name: "e5", color: null, empty: true, isPossible: false },
+      { name: "e5", color: null, empty: true, isPossible: true },
       { name: "e6", color: null, empty: true, isPossible: false },
       { name: "e7", color: null, empty: true, isPossible: false },
     ],
@@ -67,7 +67,7 @@ export default class Playground extends Component {
       { name: "f1", color: null, empty: true, isPossible: false },
       { name: "f2", color: null, empty: true, isPossible: false },
       { name: "f3", color: null, empty: true, isPossible: false },
-      { name: "f4", color: null, empty: true, isPossible: false },
+      { name: "f4", color: null, empty: true, isPossible: true },
       { name: "f5", color: null, empty: true, isPossible: false },
       { name: "f6", color: null, empty: true, isPossible: false },
       { name: "f7", color: null, empty: true, isPossible: false },
@@ -96,115 +96,115 @@ export default class Playground extends Component {
 
   orderOFRowsName = ["a", "b", "c", "d", "e", "f", "g", "h"]; // we get row index of nuts array of object with this order
 
-  nutsClickHandler = (name, empty, isPossible) => {
-    if (empty && isPossible) {
-      const { nuts } = this.state;
-      let clickedColor = this.props.playerTurn ? "black" : "purple";
-      let opponentColor = !this.props.playerTurn ? "black" : "purple";
-      const nutRowIndex = this.orderOFRowsName.indexOf(name.split("")[0]);
-      const nutColumnIndex = Number(name.split("")[1]);
-      let allNutsChangedColor = [];
+  nutsClickHandler = (name, empty, isPossible, changePlayer) => {
+    const { nuts } = this.state;
+    let clickedColor = this.props.playerTurn ? "black" : "purple";
+    let opponentColor = !this.props.playerTurn ? "black" : "purple";
+    const nutRowIndex = this.orderOFRowsName.indexOf(name.split("")[0]);
+    const nutColumnIndex = Number(name.split("")[1]);
+    let allNutsChangedColor = [];
 
-      let upperNutsChanged = [],
-        belowNutsChanged = [],
-        leftNutsChanged = [],
-        rightNutsChanged = [],
-        upRightNutsChanged = [],
-        belowRightNutsChanged = [],
-        upLeftNutsChanged = [],
-        belowLeftNutsChanged = [];
+    let upperNutsChanged = [],
+      belowNutsChanged = [],
+      leftNutsChanged = [],
+      rightNutsChanged = [],
+      upRightNutsChanged = [],
+      belowRightNutsChanged = [],
+      upLeftNutsChanged = [],
+      belowLeftNutsChanged = [];
 
-      upperNutsChanged =
-        nutRowIndex > 0
-          ? this.changeUpperNutsColor(
-              nutRowIndex,
-              nutColumnIndex,
-              opponentColor,
-              clickedColor
-            )
-          : [];
+    upperNutsChanged =
+      nutRowIndex > 0
+        ? this.changeUpperNutsColor(
+            nutRowIndex,
+            nutColumnIndex,
+            opponentColor,
+            clickedColor
+          )
+        : [];
 
-      belowNutsChanged =
-        nutRowIndex < 7
-          ? this.changeBelowNutsColor(
-              nutRowIndex,
-              nutColumnIndex,
-              opponentColor,
-              clickedColor
-            )
-          : [];
+    belowNutsChanged =
+      nutRowIndex < 7
+        ? this.changeBelowNutsColor(
+            nutRowIndex,
+            nutColumnIndex,
+            opponentColor,
+            clickedColor
+          )
+        : [];
 
-      leftNutsChanged =
-        nutColumnIndex > 0
-          ? this.changeLeftNutsColor(
-              nutRowIndex,
-              nutColumnIndex,
-              opponentColor,
-              clickedColor
-            )
-          : [];
+    leftNutsChanged =
+      nutColumnIndex > 0
+        ? this.changeLeftNutsColor(
+            nutRowIndex,
+            nutColumnIndex,
+            opponentColor,
+            clickedColor
+          )
+        : [];
 
-      rightNutsChanged =
-        nutColumnIndex < 7
-          ? this.changeRightNutsColor(
-              nutRowIndex,
-              nutColumnIndex,
-              opponentColor,
-              clickedColor
-            )
-          : [];
+    rightNutsChanged =
+      nutColumnIndex < 7
+        ? this.changeRightNutsColor(
+            nutRowIndex,
+            nutColumnIndex,
+            opponentColor,
+            clickedColor
+          )
+        : [];
 
-      upRightNutsChanged =
-        nutColumnIndex < 7 && nutRowIndex > 0
-          ? this.changeUpRightNutsColor(
-              nutRowIndex,
-              nutColumnIndex,
-              opponentColor,
-              clickedColor
-            )
-          : [];
+    upRightNutsChanged =
+      nutColumnIndex < 7 && nutRowIndex > 0
+        ? this.changeUpRightNutsColor(
+            nutRowIndex,
+            nutColumnIndex,
+            opponentColor,
+            clickedColor
+          )
+        : [];
 
-      belowRightNutsChanged =
-        nutColumnIndex < 7 && nutRowIndex < 7
-          ? this.changeBelowRightNutsColor(
-              nutRowIndex,
-              nutColumnIndex,
-              opponentColor,
-              clickedColor
-            )
-          : [];
+    belowRightNutsChanged =
+      nutColumnIndex < 7 && nutRowIndex < 7
+        ? this.changeBelowRightNutsColor(
+            nutRowIndex,
+            nutColumnIndex,
+            opponentColor,
+            clickedColor
+          )
+        : [];
 
-      upLeftNutsChanged =
-        nutColumnIndex > 0 && nutRowIndex > 0
-          ? this.changeUpLeftNutsColor(
-              nutRowIndex,
-              nutColumnIndex,
-              opponentColor,
-              clickedColor
-            )
-          : [];
+    upLeftNutsChanged =
+      nutColumnIndex > 0 && nutRowIndex > 0
+        ? this.changeUpLeftNutsColor(
+            nutRowIndex,
+            nutColumnIndex,
+            opponentColor,
+            clickedColor
+          )
+        : [];
 
-      belowLeftNutsChanged =
-        nutColumnIndex > 0 && nutRowIndex < 7
-          ? this.changeBelowLeftNutsColor(
-              nutRowIndex,
-              nutColumnIndex,
-              opponentColor,
-              clickedColor
-            )
-          : [];
+    belowLeftNutsChanged =
+      nutColumnIndex > 0 && nutRowIndex < 7
+        ? this.changeBelowLeftNutsColor(
+            nutRowIndex,
+            nutColumnIndex,
+            opponentColor,
+            clickedColor
+          )
+        : [];
 
-      allNutsChangedColor = [
-        ...upperNutsChanged,
-        ...belowNutsChanged,
-        ...rightNutsChanged,
-        ...leftNutsChanged,
-        ...upRightNutsChanged,
-        ...belowRightNutsChanged,
-        ...upLeftNutsChanged,
-        ...belowLeftNutsChanged,
-      ];
+    allNutsChangedColor = [
+      ...upperNutsChanged,
+      ...belowNutsChanged,
+      ...rightNutsChanged,
+      ...leftNutsChanged,
+      ...upRightNutsChanged,
+      ...belowRightNutsChanged,
+      ...upLeftNutsChanged,
+      ...belowLeftNutsChanged,
+    ];
 
+    if (empty && isPossible && changePlayer) {
       let newNuts = [...nuts];
       for (const row of newNuts) {
         for (const nut of row) {
@@ -217,11 +217,11 @@ export default class Playground extends Component {
       newNuts[nutRowIndex][nutColumnIndex].empty = false;
       newNuts[nutRowIndex][nutColumnIndex].isPossible = false;
 
-      this.setState({
-        nuts: newNuts,
-      });
-
+      this.setState({ nuts: newNuts });
       this.props.turnHandler();
+      this.checkIsPossible();
+    } else if (empty && !changePlayer) {
+      return allNutsChangedColor;
     }
   };
 
@@ -459,6 +459,29 @@ export default class Playground extends Component {
     }
 
     return belowLeftNutsChanged;
+  };
+
+  checkIsPossible = () => {
+    let newNuts = [...this.state.nuts];
+    console.log(this.props.playerTurn);
+    for (const row of newNuts) {
+      for (const nut of row) {
+        if (nut.empty) {
+          let possibleNuts = this.nutsClickHandler(
+            nut.name,
+            nut.empty,
+            nut.isPossible,
+            false
+          );
+          nut.isPossible = possibleNuts.length > 0 ? true : false;
+        }
+      }
+    }
+
+    this.setState({
+      nuts: newNuts,
+    });
+    console.log(this.props.playerTurn);
   };
 
   render() {
