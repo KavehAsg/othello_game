@@ -9,14 +9,14 @@ const Logo = styled.div`
   color: ${(props) => (props.playerNumber === 1 ? "#212121" : "#ba68c8")};
 
   @keyframes playerTurn {
-    0%,
-    100% {
-      -webkit-box-shadow: 0px 0px 1px 1px #2979ff;
-      box-shadow: 0px 0px 1px 1px #2979ff;
-    }
     40% {
       -webkit-box-shadow: 0px 0px 1px 4px #2979ff;
       box-shadow: 0px 0px 1px 4px #2979ff;
+    }
+    0%,
+    100% {
+      -webkit-box-shadow: 0px 0px 2px 1px #2979ff;
+      box-shadow: 0px 0px 2px 1px #2979ff;
     }
   }
 `;
