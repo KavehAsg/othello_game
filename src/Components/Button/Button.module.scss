@@ -1,18 +1,41 @@
 @import "../../Scss/mixins&var";
 
 .btn {
-  width: 200px;
+  width: 220px;
   padding: 12px 0;
   text-align: center;
   color: $primaryColor;
-  font-size: 1.5rem;
-  border-radius: 20px; 
+  font-size: 1.7rem;
+  border-radius: 20px;
   background: linear-gradient(145deg, #fff5ff, #dbcedd);
   @include buttonShadow;
-  @include transition(all , 0.2s , linear);
+  @include transition(all, 0.2s, linear);
   user-select: none;
 
-  &:hover{
+  &:hover {
     @include buttonPressedShadow;
+  }
+}
+
+@media (min-width: 1050px) and (max-width: 1200px) {
+  .btn {
+    width: 180px;
+    padding: 14px 0;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1049px) {
+  .btn {
+    width: 130px;
+    padding: 10px 0;
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 799px) {
+  .btn {
+    width: 100px;
+    padding: 8px 0;
+    font-size: 1rem;
   }
 }

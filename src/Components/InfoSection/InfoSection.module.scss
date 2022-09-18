@@ -1,25 +1,41 @@
 @import "../../Scss/mixins&var";
 
 .infoSection {
-  @include flex(column, space-between, center, 150px);
-  height: 100%;
+  @include flex(column, space-between, center, 100px);
   width: 30%;
-  padding: 48px 24px;
+  padding: 90px 48px;
   position: sticky;
-  top: 50px;
+  top: 0px;
 }
 
 .logoContainer {
   @include flex(row, space-between, center, 30px);
 }
 
-@media (min-width: 769px) and (max-width: 1020px) {
-   .infoSection{
+@media (min-width: 800px) and (max-width: 1049px) {
+  .infoSection {
     width: 25%;
-    padding: 48px 0px;
-   } 
-
+    padding: 65px 0px;
+    @include flex(column, space-between, center, 150px);
+  }
+}
+@media (min-width: 568px) and (max-width: 799px) {
   .logoContainer {
-    @include flex(row, space-between, center, 20px);
+    @include flex(row, space-between, center, 30px);
+  }
+  .infoSection {
+    width: 100%;
+    padding: 30px 40px;
+    position: absolute;
+    @include flex(row, space-between, center, 170px);
+  }
+}
+
+@media (min-width: 320px) and (max-width: 567px) {
+  .infoSection {
+    width: 100%;
+    padding: 20px 30px;
+    position: absolute;
+    @include flex(row, space-between, center, 80px);
   }
 }

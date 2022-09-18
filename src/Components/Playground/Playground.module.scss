@@ -1,19 +1,52 @@
+@import "../../Scss/mixins&var";
+
 .playground {
-  width: 80%;
-  height: auto;
+  width: 70%;
   padding: 24px;
+  @include flex(row , center , center , 0);
 }
 
 .field {
   width: 100%;
   border-radius: 16px;
   padding: 12px;
-  margin-top: 0px;
 
   display: grid;
-  grid-template-columns: repeat(8 , 1fr);
-  grid-template-rows: repeat(8 , 1fr);
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
 
-  -webkit-box-shadow: inset 5px 5px 14px #cfc3d0, inset -5px -5px 14px #ffffff;  
+  -webkit-box-shadow: inset 5px 5px 14px #cfc3d0, inset -5px -5px 14px #ffffff;
   box-shadow: inset 5px 5px 14px #cfc3d0, inset -5px -5px 14px #ffffff;
+}
+
+@media (min-width: 800px) and (max-width: 1049px) {
+  .playground {
+    width: 75%;
+    padding: 16px;
+  }
+  .field {
+    padding: 8px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 799px) {
+  .playground {
+    width: 100%;
+    height: auto;
+    padding: 18px;
+    margin-top: 150px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 567px) {
+  .playground {
+    width: 100%;
+    height: auto;
+    padding: 8px;
+    margin-top: 150px;
+  }
+  .field {
+    padding: 8px;
+    border-radius: 13px;
+  }
 }

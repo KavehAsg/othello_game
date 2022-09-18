@@ -1,25 +1,64 @@
 @import "../../Scss/mixins&var";
 
 .container {
-  @include flex(column, space-between, center, 26px);
+  @include flex(column, space-between, center, 30px);
 }
 
 .logo {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   background: $mainColor;
   border-radius: 50%;
   @include mainShadow;
   @include flex(row, center, center, 0);
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .counter {
   padding: 6px;
-  width: 5rem;
+  width: 6rem;
   height: fit-content;
   border-radius: 15px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   @include mainShadow;
 }
+
+@media (min-width: 1050px) and (max-width: 1200px) {
+  .logo {
+    width: 90px;
+    height: 90px;
+    font-size: 1.7rem;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1049px) {
+  .logo {
+    width: 60px;
+    height: 60px;
+    font-size: 1.3rem;
+  }
+
+  .counter {
+    padding: 5px;
+    width: 4rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 799px) {
+  .container {
+    @include flex(column, space-between, center, 15px);
+  }
+  .logo {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  .counter {
+    padding: 2px;
+    width: 3.5rem;
+    font-size: 1rem;
+  }
+}
+

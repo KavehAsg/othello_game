@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import styles from "./Scss/App.module.scss";
 import InfoSection from "./Components/InfoSection/InfoSection";
 import Playground from "./Components/Playground/Playground";
 import Modal from "./Components/Modal/Modal";

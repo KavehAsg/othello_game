@@ -18,3 +18,9 @@ body {
   @include flex(row, space-between, flex-start, 0px);
   position: relative;
 }
+
+@media (min-width: 320px) and (max-width: 799px) {
+  #root {
+    @include flex(column, space-between, flex-start, 300px);
+  }
+}
