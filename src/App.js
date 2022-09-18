@@ -13,7 +13,7 @@ export default class App extends Component {
       playerTurn: true, // true is black turn and false is purple turn
       blackNumber: 2, // number of each color nuts
       purpleNumber: 2,
-      showModal: false,
+      showModal: false, // state to handle modal
       modalText: "",
     };
   }
@@ -104,9 +104,11 @@ export default class App extends Component {
 
   orderOFRowsName = ["a", "b", "c", "d", "e", "f", "g", "h"]; // we get row index of nuts array of object with this order
 
-  endOfPossibilities = false;
+  endOfPossibilities = false; 
+  // Boolean to detect all possiPossibilities for two colors have ended
+  
 
-  changePlayerTurn = () => {
+  changePlayerTurn = () => { // function to change player turn after each play or no possiblity to move
     this.setState(
       (prevState) => ({
         playerTurn: !prevState.playerTurn,
@@ -118,7 +120,7 @@ export default class App extends Component {
     );
   };
 
-  resetHandler = () => {
+  resetHandler = () => { // reset button handler
     let newData = cloneDeep(this.defaultNuts);
     console.log(newData);
     this.setState(
@@ -140,7 +142,7 @@ export default class App extends Component {
     });
   };
 
-  countNuts = () => {
+  countNuts = () => { // function to count number of each color nuts and show in profile section
     let blackCounter = 0,
       purpleCounter = 0,
       nutCounter = 0,
@@ -168,14 +170,16 @@ export default class App extends Component {
         purpleNumber: purpleCounter,
       },
       () => {
-        if (nutCounter === 64) this.showWinner();
+        if (nutCounter === 64) this.showWinner(); // if there is no empty space that means game has ended and winner fuction runs 
         else if (possibleCounter === 0) {
-          if (this.endOfPossibilities) this.showWinner();
+          if (this.endOfPossibilities) this.showWinner(); // if there were not any possible for each color game is done
           else {
             this.endOfPossibilities = true;
             this.changePlayerTurn();
           }
         } else if (possibleCounter > 0) this.endOfPossibilities = false;
+        // here we set true to endOfPossibilities after detection no Possibilities so if the next
+        // color has no move neither game would end but if it has endOfPossibilities set to false again
       }
     );
   };
@@ -191,11 +195,14 @@ export default class App extends Component {
     this.modalHandler(true);
   };
 
-  findEffectedNuts = (name) => {
+  findEffectedNuts = (name) => { 
+    // with this function we find any nuts which can be effected by player moves 
+    // we use the result to change colors after the move and ahow guids to player
     let clickedColor = this.state.playerTurn ? "black" : "purple";
     let opponentColor = !this.state.playerTurn ? "black" : "purple";
     const nutRowIndex = this.orderOFRowsName.indexOf(name.split("")[0]);
     const nutColumnIndex = Number(name.split("")[1]);
+    // getting number of row and column 
 
     let allNutsChangedColor = [];
 
@@ -303,6 +310,8 @@ export default class App extends Component {
   };
 
   nutsClickHandler = (name, empty, isPossible) => {
+    // if conditions are true , we get effected nuts by played move
+    // and change their states with a loop based on the findEffectedNuts function output
     if ((empty, isPossible)) {
       let clickedColor = this.state.playerTurn ? "black" : "purple";
       const nutRowIndex = this.orderOFRowsName.indexOf(name.split("")[0]);
@@ -327,6 +336,8 @@ export default class App extends Component {
     }
   };
 
+
+  // these functions find possible effected nuts in 8 directions
   changeUpperNutsColor = (
     nutRowIndex,
     nutColumnIndex,
@@ -564,6 +575,8 @@ export default class App extends Component {
   };
 
   checkIsPossible = () => {
+    // find possible moves for each player and set item.isPossible to true
+    // this action leads to show a guid circle in the nut field
     let newNuts = [...this.state.nuts];
     for (const row of newNuts) {
       for (const nut of row) {
