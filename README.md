@@ -1,9 +1,10 @@
-# Getting Started with Create React App
+# Demo:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Play Online](https://myothello.netlify.app/)
 
-## Available Scripts
+# Created with :
 
+<<<<<<< HEAD
 In the project directory, you can run:
 
 ### `npm start`
@@ -70,3 +71,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+React.js - Scss - Styled Components - Class Components
+>>>>>>> 6af8586616055aff8fe35abf6001ef73a404277f
