@@ -105,10 +105,10 @@ export default class App extends Component {
   orderOFRowsName = ["a", "b", "c", "d", "e", "f", "g", "h"]; // we get row index of nuts array of object with this order
 
   endOfPossibilities = false; 
-  // Boolean to detect all possiPossibilities for two colors have ended
+  // Boolean to detect all Possibilities for two colors have ended
   
 
-  changePlayerTurn = () => { // function to change player turn after each play or no possiblity to move
+  changePlayerTurn = () => { // function to change player turn after each play or no possibility to move
     this.setState(
       (prevState) => ({
         playerTurn: !prevState.playerTurn,
@@ -170,7 +170,7 @@ export default class App extends Component {
         purpleNumber: purpleCounter,
       },
       () => {
-        if (nutCounter === 64) this.showWinner(); // if there is no empty space that means game has ended and winner fuction runs 
+        if (nutCounter === 64) this.showWinner(); // if there is no empty space that means game has ended and winner function runs 
         else if (possibleCounter === 0) {
           if (this.endOfPossibilities) this.showWinner(); // if there were not any possible for each color game is done
           else {
@@ -197,7 +197,7 @@ export default class App extends Component {
 
   findEffectedNuts = (name) => { 
     // with this function we find any nuts which can be effected by player moves 
-    // we use the result to change colors after the move and ahow guids to player
+    // we use the result to change colors after the move and show guides to player
     let clickedColor = this.state.playerTurn ? "black" : "purple";
     let opponentColor = !this.state.playerTurn ? "black" : "purple";
     const nutRowIndex = this.orderOFRowsName.indexOf(name.split("")[0]);
