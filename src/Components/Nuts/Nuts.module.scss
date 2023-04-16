@@ -13,7 +13,7 @@
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: none;
+    -webkit-box-shadow: none;
     box-shadow: none;
   }
 }

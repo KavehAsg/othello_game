@@ -108,7 +108,7 @@ export default class App extends Component {
   // Boolean to detect all Possibilities for two colors have ended
   
 
-  changePlayerTurn = () => { // function to change player turn after each play or no possibility to move
+  changePlayerTurn =  () => { // function to change player turn after each play or no possibility to move
     this.setState(
       (prevState) => ({
         playerTurn: !prevState.playerTurn,
@@ -122,18 +122,13 @@ export default class App extends Component {
 
   resetHandler = () => { // reset button handler
     let newData = cloneDeep(this.defaultNuts);
-    console.log(newData);
     this.setState(
       {
         playerTurn: true,
         blackNumber: 2,
         purpleNumber: 2,
         nuts: [...newData],
-      },
-      () => {
-        console.log(this.state.nuts);
-      }
-    );
+      });
   };
 
   modalHandler = (open) => {

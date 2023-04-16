@@ -4,6 +4,7 @@
   @include flex(column, space-between, center, 100px);
   width: 30%;
   padding: 90px 48px;
+  position: -webkit-sticky;
   position: sticky;
   top: 0px;
 }
@@ -20,9 +21,6 @@
   }
 }
 @media (min-width: 568px) and (max-width: 799px) {
-  .logoContainer {
-    @include flex(row, space-between, center, 30px);
-  }
   .infoSection {
     width: 100%;
     padding: 30px 40px;
